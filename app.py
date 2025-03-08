@@ -50,7 +50,7 @@ def analyze_image(image_url):
         # Send properly formatted image to Gemini AI
         gemini_model = genai.GenerativeModel("gemini-1.5-flash")
         prompt = """If image of clothing, analyze the image and assign a quality score (e.g., "Like New," "Used
-        - Good," "Salvage") based on product wear and tear.If it is a tag, respond with the tag number."""
+        - Good," "Salvage") based on product wear and tear.If it is a tag, reply with the tag number. If quality is Used - Good, then suggest a discount for resale"""
         
         ai_response = gemini_model.generate_content([prompt, image])  # Send prompt and image
         
