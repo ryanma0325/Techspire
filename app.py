@@ -5,11 +5,11 @@ import re
 from io import BytesIO
 from PIL import Image
 
-# 🔑 Configure Google Gemini AI API
-GENAI_API_KEY = "AIzaSyCk5_W9SYYVJL8LJJT3beTDY3n8CBbqSas"  # Replace with your valid API key
+# Configure Google Gemini AI API
+GENAI_API_KEY = "REPLACE WITH YOUR OWN GEMINI AI API KEY"  # Replace with your valid API key
 genai.configure(api_key=GENAI_API_KEY)
 
-# ✅ Function: Convert Google Drive Link to Direct URL
+# Function: Convert Google Drive Link to Direct URL
 def convert_drive_link(url):
     """Converts a Google Drive sharing link into a direct download link."""
     match = re.search(r"file/d/([a-zA-Z0-9_-]+)", url)
@@ -18,7 +18,7 @@ def convert_drive_link(url):
         return f"https://drive.google.com/uc?export=download&id={file_id}"
     return None  # Return None if invalid
 
-# ✅ Function: Download Image from Google Drive
+# Function: Download Image from Google Drive
 def download_image(image_url):
     """Downloads an image and returns it as BytesIO."""
     try:
@@ -33,8 +33,8 @@ def download_image(image_url):
         return None  # Return None if download fails
     return None
 
-# ✅ Function: Analyze Image with Gemini AI
-# ✅ Function: Analyze Image with Gemini AI
+# Function: Analyze Image with Gemini AI
+# Function: Analyze Image with Gemini AI
 def analyze_image(image_url):
     """Downloads and analyzes an image using Google Gemini AI."""
     try:
@@ -48,7 +48,7 @@ def analyze_image(image_url):
         except:
             return "Error: Invalid image file."
 
-        # ✅ Send properly formatted image to Gemini AI
+        # Send properly formatted image to Gemini AI
         gemini_model = genai.GenerativeModel("gemini-1.5-flash")
         prompt = """If image of clothing, analyze the image and assign a quality score (e.g., "Like New," "Used
         - Good," "Salvage") based on product wear and tear.If it is a tag, respond with the tag number."""
@@ -61,7 +61,7 @@ def analyze_image(image_url):
     except Exception as e:
         return f"Error: {str(e)}"
 
-# ✅ Function: Process CSV and Save Analysis Results
+# Function: Process CSV and Save Analysis Results
 def process_csv(input_csv, output_csv="analysis_results.csv"):
     """Reads a CSV file, processes images, and saves analysis results."""
     try:
@@ -74,7 +74,7 @@ def process_csv(input_csv, output_csv="analysis_results.csv"):
 
         # Save results
         df.to_csv(output_csv, index=False)
-        print(f"✅ Analysis saved to {output_csv}")
+        print(f"Analysis saved to {output_csv}")
     except Exception as e:
         print(f"Error processing CSV: {str(e)}")
 
