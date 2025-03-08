@@ -34,7 +34,6 @@ def download_image(image_url):
     return None
 
 # Function: Analyze Image with Gemini AI
-# Function: Analyze Image with Gemini AI
 def analyze_image(image_url):
     """Downloads and analyzes an image using Google Gemini AI."""
     try:
@@ -78,6 +77,6 @@ def process_csv(input_csv, output_csv="analysis_results.csv"):
     except Exception as e:
         print(f"Error processing CSV: {str(e)}")
 
-# 🔥 Run Analysis on image_links.csv
+# Run Analysis on image_links.csv
 csv_file_path = "image_links.csv"  # Ensure this file is present
 process_csv(csv_file_path)
